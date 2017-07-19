@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+	<meta http-equiv="X-UA-Compatible" content="IE=9">
+    <title>GameDistribution</title>
+
+    <style>
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #myflash {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+    </style>
+</head>
+<body id="bodyId">
+
+</body>
+<script>
+
+	function getUrlParameter(name) {
+		name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+		var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+		var results = regex.exec(location.search);
+		return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+	};
+		
+	function getAdobeGif() {
+		var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://"); 
+		return pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif"; 
+	} 
+	
+	var node = document.createElement('object');
+		node.setAttribute('id',"myflash");
+		node.setAttribute('type',"application/x-shockwave-flash");
+		node.setAttribute('data',"http://swf.GameDistribution.com/"+getUrlParameter('game')+".swf");
+		node.setAttribute('width',"100%");
+		node.setAttribute('height',"100%");
+		node.setAttribute('style',"display: block; text-align: center; background-color: black;");
+	
+			var param0 = document.createElement('param');
+				param0.setAttribute("name", "bgcolor");  
+				param0.setAttribute("value", "#000000");  
+			var param1 = document.createElement('param');
+				param1.setAttribute("name", "allowscriptaccess");  
+				param1.setAttribute("value", "always");  
+			var param2 = document.createElement('param');
+				param2.setAttribute("name", "swLiveConnect");  
+				param2.setAttribute("value", "true");  
+			var param3 = document.createElement('param');
+				param3.setAttribute("name", "wmode");  
+				param3.setAttribute("value", "direct");  
+			var param4 = document.createElement('param');
+				param4.setAttribute("name", "quality");  
+				param4.setAttribute("value", "high");  	
+			var param5 = document.createElement('param');
+				param5.setAttribute("name", "menu");  
+				param5.setAttribute("value", "false");  
+				
+			var p = document.createElement('p');
+				p.innerHTML = "To view this page ensure that Adobe Flash Player version 10.0.0 or greater is installed. <br/><br/>";
+					var a = document.createElement('a');
+						a.setAttribute("href","http://get.adobe.com/flashplayer/");
+						p.appendChild(a);
+						
+						var img = document.createElement('img');
+							img.setAttribute('id','imgAdobeId');
+							img.setAttribute('src','');
+							img.setAttribute('alt','Get Adobe Flash player');
+							
+						a.appendChild(img);
+            
+					p.setAttribute("style", "background-color:white")
+				
+		node.appendChild(param0);
+		node.appendChild(param1);
+		node.appendChild(param2);
+		node.appendChild(param3);
+		node.appendChild(param4);
+		node.appendChild(param5);
+		node.appendChild(p);
+	
+	var body = document.getElementById("bodyId");
+	body.appendChild(node);
+
+	document.getElementById("imgAdobeId").src = getAdobeGif(); 
+
+</script>
+</html>
+
+
