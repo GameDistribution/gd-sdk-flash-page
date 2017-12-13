@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-	<meta http-equiv="X-UA-Compatible" content="IE=9">
-    <title>GameDistribution</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="googlebot" content="noindex, nofollow">
+
+    <title>Gamedistribution.com</title>
+
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <meta name="msapplication-tap-highlight" content="no"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=5449a1912e"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png?v=5449a1912e"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png?v=5449a1912e"/>
+    <link rel="mask-icon" href="/assets/safari-pinned-tab.svg?v=5449a1912e" color="#44a5ab"/>
+    <meta name="msapplication-TileColor" content="#44a5ab"/>
+    <meta name="msapplication-TileImage" content="/assets/mstile-144x144.png?v=5449a1912e"/>
+    <meta name="theme-color" content="#44a5ab"/>
 
     <style>
-        html {
+        html,
+        body {
             height: 100%;
-            overflow: hidden;
+            min-height: 100%;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(270deg,#240d47,#5c3997,#240d47);
+            background-size: 600%;
+            font-size: 18px;
+            font-weight: 300;
         }
 
         #myflash {
             height: 100%;
-        }
-
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background-color: black;
         }
     </style>
 </head>
@@ -28,72 +50,78 @@
 </body>
 <script>
 
-	function getUrlParameter(name) {
-		name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-		var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-		var results = regex.exec(location.search);
-		return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-	};
-		
-	function getAdobeGif() {
-		var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://"); 
-		return pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif"; 
-	} 
-	
-	var node = document.createElement('object');
-		node.setAttribute('id',"myflash");
-		node.setAttribute('type',"application/x-shockwave-flash");
-		node.setAttribute('data',"http://swf.GameDistribution.com/"+getUrlParameter('game')+".swf");
-		node.setAttribute('width',"100%");
-		node.setAttribute('height',"100%");
-		node.setAttribute('style',"display: block; text-align: center; background-color: black;");
-	
-			var param0 = document.createElement('param');
-				param0.setAttribute("name", "bgcolor");  
-				param0.setAttribute("value", "#000000");  
-			var param1 = document.createElement('param');
-				param1.setAttribute("name", "allowscriptaccess");  
-				param1.setAttribute("value", "always");  
-			var param2 = document.createElement('param');
-				param2.setAttribute("name", "swLiveConnect");  
-				param2.setAttribute("value", "true");  
-			var param3 = document.createElement('param');
-				param3.setAttribute("name", "wmode");  
-				param3.setAttribute("value", "direct");  
-			var param4 = document.createElement('param');
-				param4.setAttribute("name", "quality");  
-				param4.setAttribute("value", "high");  	
-			var param5 = document.createElement('param');
-				param5.setAttribute("name", "menu");  
-				param5.setAttribute("value", "false");  
-				
-			var p = document.createElement('p');
-				p.innerHTML = "To view this page ensure that Adobe Flash Player version 10.0.0 or greater is installed. <br/><br/>";
-					var a = document.createElement('a');
-						a.setAttribute("href","http://get.adobe.com/flashplayer/");
-						p.appendChild(a);
-						
-						var img = document.createElement('img');
-							img.setAttribute('id','imgAdobeId');
-							img.setAttribute('src','');
-							img.setAttribute('alt','Get Adobe Flash player');
-							
-						a.appendChild(img);
-            
-					p.setAttribute("style", "background-color:white")
-				
-		node.appendChild(param0);
-		node.appendChild(param1);
-		node.appendChild(param2);
-		node.appendChild(param3);
-		node.appendChild(param4);
-		node.appendChild(param5);
-		node.appendChild(p);
-	
-	var body = document.getElementById("bodyId");
-	body.appendChild(node);
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(
+            results[1].replace(/\+/g, ' '));
+    };
 
-	document.getElementById("imgAdobeId").src = getAdobeGif(); 
+    function getAdobeGif() {
+        var pageHost = ((document.location.protocol === 'https:')
+            ? 'https://'
+            : 'http://');
+        return pageHost +
+            'www.adobe.com/images/shared/download_buttons/get_flash_player.gif';
+    }
+
+    var node = document.createElement('object');
+    node.setAttribute('id', 'myflash');
+    node.setAttribute('type', 'application/x-shockwave-flash');
+    node.setAttribute('data', 'https://test.flash.gamedistribution.com/' +
+        getUrlParameter('game') + '.swf');
+    node.setAttribute('width', '100%');
+    node.setAttribute('height', '100%');
+    node.setAttribute('style',
+        'display: block; text-align: center; background-color: black;');
+
+    var param0 = document.createElement('param');
+    param0.setAttribute('name', 'bgcolor');
+    param0.setAttribute('value', '#000000');
+    var param1 = document.createElement('param');
+    param1.setAttribute('name', 'allowscriptaccess');
+    param1.setAttribute('value', 'always');
+    var param2 = document.createElement('param');
+    param2.setAttribute('name', 'swLiveConnect');
+    param2.setAttribute('value', 'true');
+    var param3 = document.createElement('param');
+    param3.setAttribute('name', 'wmode');
+    param3.setAttribute('value', 'direct');
+    var param4 = document.createElement('param');
+    param4.setAttribute('name', 'quality');
+    param4.setAttribute('value', 'high');
+    var param5 = document.createElement('param');
+    param5.setAttribute('name', 'menu');
+    param5.setAttribute('value', 'false');
+
+    var p = document.createElement('p');
+    p.innerHTML = 'To view this page ensure that Adobe Flash Player version 10.0.0 or greater is installed. <br/><br/>';
+    var a = document.createElement('a');
+    a.setAttribute('href', 'http://get.adobe.com/flashplayer/');
+    p.appendChild(a);
+
+    var img = document.createElement('img');
+    img.setAttribute('id', 'imgAdobeId');
+    img.setAttribute('src', '');
+    img.setAttribute('alt', 'Get Adobe Flash player');
+
+    a.appendChild(img);
+
+    p.setAttribute('style', 'background-color:white');
+
+    node.appendChild(param0);
+    node.appendChild(param1);
+    node.appendChild(param2);
+    node.appendChild(param3);
+    node.appendChild(param4);
+    node.appendChild(param5);
+    node.appendChild(p);
+
+    var body = document.getElementById('bodyId');
+    body.appendChild(node);
+
+    document.getElementById('imgAdobeId').src = getAdobeGif();
 
 </script>
 </html>
