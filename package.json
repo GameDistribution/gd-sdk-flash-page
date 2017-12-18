@@ -1,0 +1,14 @@
+{
+    "name": "FlashSDKPage",
+    "version": "1.0.0",
+    "author": "Gamedistribution.com",
+    "description": "Embedding page for the flash games.",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git@gitlab.com:orangegames.com/gamedistribution/gd-sdk-flash-page.git"
+    },
+    "devDependencies": {
+        "grunt-google-cloud": "^1.0.7"
+    }
+}
